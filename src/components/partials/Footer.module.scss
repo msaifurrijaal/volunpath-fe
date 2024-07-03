@@ -1,0 +1,50 @@
+@import '../../app/globals.scss';
+
+.footer {
+    background-color: #f0f0f0;
+    padding-top: 56px;
+    padding-bottom: 32px;
+
+    img {
+        max-width: 160px;
+        height: fit-content;
+    }
+
+    &__column {
+        width: 100%;
+        padding: 0 1rem;
+        margin-bottom: 2rem;
+
+        &__title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                margin-bottom: 1rem;
+
+                a {
+                    font-size: 1rem;
+                    color: #333;
+                    text-decoration: none;
+                    transition: color 0.3s ease;
+
+                    &:hover {
+                        color: #80c4e9;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.container {
+    @extend .container;
+}

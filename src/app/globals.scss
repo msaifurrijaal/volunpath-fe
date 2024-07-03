@@ -1,19 +1,46 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto', sans-serif;
-  background-color: #f0f0f0; /* Contoh warna latar belakang */
+$color-primary: #604CC3;
+$color-secondary: #80C4E9;
+$color-accent: #FF7F3E;
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-h1, h2, h3, h4, h5, h6, p {
-  margin: 0;
+/* Small devices (landscape phones, 640px and up) */
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
 }
 
-* {
-  box-sizing: border-box;
+/* Large devices (desktops, 1024px and up) */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+/* Extra large devices (large desktops, 1280px and up) */
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* 2X large devices (very large desktops, 1536px and up) */
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
 }
