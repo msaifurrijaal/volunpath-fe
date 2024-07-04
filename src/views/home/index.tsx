@@ -1,7 +1,13 @@
 import React from 'react';
 
+import Hero from '@/components/ui/pages/home/Hero';
+
 const Home = () => {
-  return <div style={{ height: '100vh' }}>Home</div>;
+  return (
+    <main id="home">
+      <Hero />
+    </main>
+  );
 };
 
 export default Home;
