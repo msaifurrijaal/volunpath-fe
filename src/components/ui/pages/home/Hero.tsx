@@ -6,6 +6,7 @@ import { Button, Grid, Typography } from '@mui/material';
 
 import { MdOutlineHandshake } from 'react-icons/md';
 import { MdVolunteerActivism } from 'react-icons/md';
+import { MdPersonalVideo } from 'react-icons/md';
 
 import HeroImage from '../../../../assets/images/pages/home/hero_image.jpg';
 
@@ -27,6 +28,14 @@ const Hero = () => {
           <div className={styles.hero__contentA__buttonContainer}>
             <Button variant="contained" color="primary">
               Join Our Activity
+            </Button>
+            <Button
+              variant="outlined"
+              color="primary"
+              className={styles.hero__contentA__buttonContainer__buttonOutline}
+              startIcon={<MdPersonalVideo />}
+            >
+              Watch Video
             </Button>
           </div>
           <Grid container spacing={4} mt={2}>
