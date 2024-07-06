@@ -5,6 +5,8 @@ import Image from 'next/image';
 
 import { useRouter } from 'next/navigation';
 
+import Link from 'next/link';
+
 import { useForm } from 'react-hook-form';
 import type { FieldValues } from 'react-hook-form';
 
@@ -15,6 +17,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Button, Grid, TextField, Typography } from '@mui/material';
 
 import { signIn } from 'next-auth/react';
+
+import { IoMdEye, IoMdEyeOff } from 'react-icons/io';
 
 import styles from './Login.module.scss';
 
@@ -27,6 +31,8 @@ const Login = ({
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>('');
+  const [showPassword, setShowPassword] = useState(false);
+
   const callbackUrl = searchParams?.callbackUrl || '/';
   const { replace } = useRouter();
 
@@ -46,6 +52,8 @@ const Login = ({
     resolver: zodResolver(authSchema),
   });
 
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
   const onSubmit = async (data: FieldValues) => {
     const { email, password } = data;
 
@@ -63,7 +71,6 @@ const Login = ({
       setIsLoading(false);
       setError(res.error);
     } else {
-      setIsLoading(false);
       setError('');
       replace(callbackUrl);
     }
@@ -89,7 +96,7 @@ const Login = ({
           <div className={styles.columnB__content}>
             <Image src={Logo} alt="Logo Volunpath" />
             <Typography className={styles.columnB__content__title}>
-              Login
+              Masuk
             </Typography>
             <Typography className={styles.columnB__content__description}>
               Selamat datang kembali! Silahkan masukkan email dan kata sandi
@@ -122,7 +129,22 @@ const Login = ({
                     {...register('password')}
                     fullWidth
                     label="Kata Sandi"
-                    type="password"
+                    type={showPassword ? 'text' : 'password'}
+                    InputProps={{
+                      endAdornment: showPassword ? (
+                        <IoMdEye
+                          onClick={() => handleClickShowPassword()}
+                          size={24}
+                          cursor={'pointer'}
+                        />
+                      ) : (
+                        <IoMdEyeOff
+                          onClick={() => handleClickShowPassword()}
+                          size={24}
+                          cursor={'pointer'}
+                        />
+                      ),
+                    }}
                   />
                   {errors.password && (
                     <Typography
@@ -143,7 +165,7 @@ const Login = ({
                 type="submit"
                 disabled={isLoading}
               >
-                {isLoading ? 'Loading...' : 'Login'}
+                {isLoading ? 'Loading...' : 'Masuk'}
               </Button>
               {error && (
                 <Typography
@@ -154,7 +176,7 @@ const Login = ({
                 </Typography>
               )}
               <Typography className={styles.columnB__content__input__register}>
-                Belum memiliki akun? <span>Daftar</span>
+                Belum memiliki akun? <Link href={'/register'}>Daftar</Link>
               </Typography>
             </form>
           </div>
