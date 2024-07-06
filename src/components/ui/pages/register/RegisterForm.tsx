@@ -366,6 +366,24 @@ const RegisterForm = ({
                           </Typography>
                         )}
                     </Grid>
+                    <Grid item xs={12} md={6}>
+                      <TextField
+                        {...register('organizationDescription')}
+                        fullWidth
+                        label="Deskripsi Organisasi"
+                        type="text"
+                        disabled={watch('role') !== 'organization'}
+                      />
+                      {errorDataRole.organizationDescription &&
+                        !watch('organizationDescription') && (
+                          <Typography
+                            color={'error'}
+                            className={styles.columnB__content__input__error}
+                          >
+                            * {`${errorDataRole.organizationDescription}`}
+                          </Typography>
+                        )}
+                    </Grid>
                   </>
                 )}
                 {watch('role') === 'volunteer' && (
