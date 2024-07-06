@@ -1,0 +1,51 @@
+@import '../../../../app/globals.scss';
+
+.container {
+    @extend .container;
+}
+
+.category {
+    &__wrapper {
+        padding: 26px 20px;
+
+        &__subtitle {
+            font-size: 16px;
+            font-weight: 500;
+            text-align: center;
+            color: $color-accent;
+
+            @media screen and (min-width: 600px) {
+                font-size: 20px;
+            }
+        }
+
+        &__title {
+            font-size: 20px;
+            font-weight: 500;
+            text-align: center;
+
+            @media screen and (min-width: 600px) {
+                font-size: 28px;
+            }
+
+            @media screen and (min-width: 900px) {
+                font-size: 32px;
+            }
+        }
+
+        @media screen and (min-width: 600px) {
+            font-size: 24px;
+            padding: 48px 20px;
+        }
+
+        @media screen and (min-width: 900px) {
+            font-size: 32px;
+            padding: 72px 20px 96px 20px;
+        }
+
+        @media screen and (min-width: 1200px) {
+            font-size: 40px;
+            padding: 72px 20px 128px 20px;
+        }
+    }
+}

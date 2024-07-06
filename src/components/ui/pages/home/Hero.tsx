@@ -21,13 +21,17 @@ const Hero = () => {
             Empower Your Passion, Change the World
           </Typography>
           <Typography className={styles.hero__contentA__description}>
-            Discover volunteer opportunities that match your interests and
-            skills. Join us in making a positive impact in communities around
-            the globe.
+            Temukan peluang menjadi sukarelawan yang sesuai dengan minat dan
+            keterampilan Anda. Bergabunglah dengan kami dalam memberikan dampak
+            positif pada komunitas di seluruh dunia.
           </Typography>
           <div className={styles.hero__contentA__buttonContainer}>
-            <Button variant="contained" color="primary">
-              Join Our Activity
+            <Button
+              variant="contained"
+              color="primary"
+              style={{ textTransform: 'none' }}
+            >
+              Gabung Aktivitas Kami
             </Button>
             <Button
               variant="outlined"
@@ -35,7 +39,7 @@ const Hero = () => {
               className={styles.hero__contentA__buttonContainer__buttonOutline}
               startIcon={<MdPersonalVideo />}
             >
-              Watch Video
+              Dokumentasi Kegiatan
             </Button>
           </div>
           <Grid container spacing={4} mt={2}>
@@ -44,9 +48,9 @@ const Hero = () => {
                 15K
               </Typography>
               <Typography className={styles.hero__contentA__subtitle}>
-                Incridible
+                Relawan
                 <br />
-                Volunters
+                Terbaik
               </Typography>
             </Grid>
             <Grid item xs={4}>
@@ -54,9 +58,9 @@ const Hero = () => {
                 100+
               </Typography>
               <Typography className={styles.hero__contentA__subtitle}>
-                Successful
+                Kegiatan
                 <br />
-                Campaigns
+                Terlaksana
               </Typography>
             </Grid>
             <Grid item xs={4}>
@@ -64,9 +68,9 @@ const Hero = () => {
                 600+
               </Typography>
               <Typography className={styles.hero__contentA__subtitle}>
-                Montly
+                Donatur
                 <br />
-                Donors
+                Bulanan
               </Typography>
             </Grid>
           </Grid>

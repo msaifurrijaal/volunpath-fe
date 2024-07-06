@@ -1,0 +1,52 @@
+@import '../../../../app/globals.scss';
+
+.container {
+    @extend .container;
+}
+
+.event {
+    background-color: $color-background-soft;
+
+    &__wrapper {
+        padding: 26px 20px;
+
+        &__title {
+            font-size: 20px;
+            font-weight: 500;
+
+            @media screen and (min-width: 600px) {
+                font-size: 24px;
+            }
+
+            @media screen and (min-width: 1200px) {
+                font-size: 32px;
+            }
+        }
+
+        &__description {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 24px;
+            margin-top: 4px;
+        }
+
+        &__link {
+            display: flex;
+            justify-content: end;
+            margin-top: 16px;
+            text-decoration: none;
+            color: $color-primary;
+            font-size: 16px;
+        }
+
+        @media screen and (min-width: 600px) {
+            font-size: 24px;
+            padding: 48px 20px;
+        }
+
+        @media screen and (min-width: 900px) {
+            font-size: 32px;
+            padding: 96px 20px;
+        }
+    }
+}

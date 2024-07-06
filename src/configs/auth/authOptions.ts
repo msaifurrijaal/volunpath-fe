@@ -26,7 +26,7 @@ export const authOptions: NextAuthOptions = {
                 const res = await loginAuth(credentials?.email, credentials?.password);
 
                 if (res.data) {
-                    return res.data;
+                    return res.data.data;
                 } else {
                     throw new Error(res.data.message);
                 }

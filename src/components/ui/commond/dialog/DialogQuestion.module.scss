@@ -1,0 +1,52 @@
+@import '../../../../app/globals.scss';
+
+.dialog {
+
+    &__content {
+        overflow: visible;
+        padding-top: 24px;
+        padding-bottom: 24px;
+
+        &__title {
+            font-size: 28px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        &__description {
+            font-size: 18px;
+            font-weight: 400;
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        &__illustrationContainer {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 18px;
+
+
+            &__illustration {
+                width: 80px;
+                height: 80px;
+                align-self: center;
+            }
+        }
+
+    }
+
+    &__actions {
+        padding-bottom: 24px;
+        display: flex;
+        justify-content: center;
+
+        &__btnCancel {
+            color: white;
+            background-color: $color-text-secondary;
+
+            &:hover {
+                background-color: $colot-soft-text-secondary;
+            }
+        }
+    }
+}
