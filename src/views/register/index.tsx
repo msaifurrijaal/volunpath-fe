@@ -24,6 +24,7 @@ const Register = () => {
     organizationName: '',
     organizationAddress: '',
     organizationFocus: '',
+    organizationDescription: '',
     volunteerSkills: '',
     volunteerEducation: '',
     volunteerOtherDetails: '',
@@ -53,6 +54,7 @@ const Register = () => {
       organizationName: z.string().optional(),
       organizationAddress: z.string().optional(),
       organizationFocus: z.string().optional(),
+      organizationDescription: z.string().optional(),
       volunteerSkills: z.string().optional(),
       volunteerEducation: z.string().optional(),
       volunteerOtherDetails: z.string().optional(),
@@ -84,6 +86,7 @@ const Register = () => {
       organizationName: '',
       organizationAddress: '',
       organizationFocus: '',
+      organizationDescription: '',
       volunteerSkills: '',
       volunteerEducation: '',
       volunteerOtherDetails: '',
@@ -101,6 +104,9 @@ const Register = () => {
       errorDataRoleMessage.organizationFocus = !data.organizationFocus
         ? 'Fokus harus diisi'
         : '';
+
+      errorDataRoleMessage.organizationDescription =
+        !data.organizationDescription ? 'Deskripsi harus diisi' : '';
     } else if (role === 'volunteer') {
       errorDataRoleMessage.volunteerSkills = !data.volunteerSkills
         ? 'Keterampilan harus diisi'
@@ -127,7 +133,8 @@ const Register = () => {
       role === 'organization' &&
       errorDataRoleMessage.organizationName === '' &&
       errorDataRoleMessage.organizationAddress === '' &&
-      errorDataRoleMessage.organizationFocus === '';
+      errorDataRoleMessage.organizationFocus === '' &&
+      errorDataRoleMessage.organizationDescription === '';
 
     if (isVolunteerValid || isOrganizationValid) {
       registerNewUser(data);
@@ -189,6 +196,7 @@ const Register = () => {
           name: data.organizationName,
           address: data.organizationAddress,
           focus: data.organizationFocus,
+          description: data.organizationDescription,
         },
       };
 

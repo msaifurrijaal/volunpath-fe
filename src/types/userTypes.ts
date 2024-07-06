@@ -29,5 +29,6 @@ export type OrganizationData = {
     name: string;
     address: string;
     focus: string;
+    description: string;
   };
 };

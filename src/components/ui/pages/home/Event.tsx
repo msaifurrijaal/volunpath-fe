@@ -50,7 +50,7 @@ const Event = () => {
           </Typography>
           <Grid container spacing={3} mt={2}>
             {events && !isLoading ? (
-              events.map((event) => (
+              events.slice(0, 4).map((event) => (
                 <Grid key={event.id} item xs={12} sm={6} md={4} lg={3}>
                   <EventCard
                     category={event.category.name}
