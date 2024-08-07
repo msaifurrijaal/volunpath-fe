@@ -1,9 +1,11 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import Link from 'next/link';
 
 import { Grid, Typography } from '@mui/material';
+
+import { useQuery } from '@tanstack/react-query';
 
 import styles from './Event.module.scss';
 import { getEvents } from '@/services/event/getEvents';
@@ -14,25 +16,18 @@ import SkeletonGrid from '../../commond/skeleton/SkeletonGrid';
 const skeletonArray = Array.from({ length: 4 });
 
 const Event = () => {
-  const [events, setEvents] = useState<EventType[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const {
+    isLoading,
+    isSuccess,
+    isError,
+    error,
+    data: query,
+  } = useQuery({
+    queryKey: ['events'],
+    queryFn: getEvents,
+  });
 
-  useEffect(() => {
-    const fetchEvents = async () => {
-      try {
-        setIsLoading(true);
-        const response = await getEvents();
-
-        setIsLoading(false);
-
-        setEvents(response.data.data);
-      } catch (error) {
-        setIsLoading(false);
-      }
-    };
-
-    fetchEvents();
-  }, []);
+  console.log(error, isError);
 
   return (
     <section className={styles.event}>
@@ -49,8 +44,10 @@ const Event = () => {
             SEKARANG untuk memberikan dampak langsung, Setiap detik berarti!
           </Typography>
           <Grid container spacing={3} mt={2}>
-            {events && !isLoading ? (
-              events.slice(0, 4).map((event) => (
+            {!isLoading &&
+              isSuccess &&
+              query &&
+              query.data.data.slice(0, 4).map((event: EventType) => (
                 <Grid key={event.id} item xs={12} sm={6} md={4} lg={3}>
                   <EventCard
                     category={event.category.name}
@@ -61,11 +58,12 @@ const Event = () => {
                     title={event.title}
                   />
                 </Grid>
-              ))
-            ) : (
+              ))}
+            {isLoading && (
               <SkeletonGrid listSkeleton={skeletonArray} height={400} />
             )}
           </Grid>
+          {isError && <Typography>{error.message}</Typography>}
           <Link href="/event" className={styles.event__wrapper__link}>
             Lihat Semua
           </Link>

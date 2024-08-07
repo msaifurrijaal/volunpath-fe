@@ -6,6 +6,7 @@ import theme from '../theme';
 import './globals.scss';
 import { DataUserContextProvider } from '@/context/DataUser';
 import NextAuthProvider from '@/configs/auth/providers';
+import { TanstackQueryProvider } from '@/configs/tanstack-query/providers';
 
 export const metadata: Metadata = {
   title: 'Volunpath',
@@ -23,7 +24,9 @@ export default function RootLayout({
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <NextAuthProvider>
-            <DataUserContextProvider>{children}</DataUserContextProvider>
+            <TanstackQueryProvider>
+              <DataUserContextProvider>{children}</DataUserContextProvider>
+            </TanstackQueryProvider>
           </NextAuthProvider>
         </ThemeProvider>
       </body>
